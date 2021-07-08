@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin6">6dp</dimen>
+    <dimen name="name_size">17sp</dimen>
+</resources>

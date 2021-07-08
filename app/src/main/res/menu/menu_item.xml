@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_settings"
+        android:title="Очистить список"
+        android:icon="@android:drawable/ic_menu_preferences"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_add"
+        android:title="Добавить"
+        android:icon="@android:drawable/ic_menu_add"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="2"/>
+    <item
+        android:id="@+id/menu_search"
+        android:icon="@android:drawable/ic_menu_search"
+        android:orderInCategory="1"
+        android:title="Поиск"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_about_app"
+        android:title="О приложении"
+        app:showAsAction="never"/>
+
+</menu>
