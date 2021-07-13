@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.notesfinal.observer.Publisher;
 import com.example.notesfinal.ui.NoteFragment;
+import com.example.notesfinal.ui.StartFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         navigation = new Navigation(getSupportFragmentManager());
         getNavigation().addFragment(NoteFragment.newInstance(), false);
+        //getNavigation().addFragment(StartFragment.newInstance(), false);
     }
 
     public Navigation getNavigation() {

@@ -2,6 +2,7 @@ package com.example.notesfinal.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -121,8 +123,27 @@ public class NoteFragment extends Fragment {
                 noteAdapter.notifyItemRemoved(deletePosition);
                 return true;
             case R.id.menu_settings:
-                data.clearNotes();
-                noteAdapter.notifyDataSetChanged();
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("Внимание")
+                        .setMessage("Уверен, что хочешь удалить все заметки?")
+                        .setCancelable(false)
+                        .setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getContext(), "Отменяем", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        data.clearNotes();
+                                        noteAdapter.notifyDataSetChanged();
+                                        Toast.makeText(getContext(), "Мы все удалили", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
                 return true;
         }
         return false;
